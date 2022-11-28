@@ -13,6 +13,9 @@ namespace FFStudio
     [ Title( "Rope Anchor" ) ]
 		[ LabelText( "Movement Speed" ) ] public float rope_movement_speed;
 		[ LabelText( "Movement Rotate Speed" ) ] public float rope_movement_rotate_speed;
+		[ LabelText( "Movement Height" ) ] public float rope_movement_height;
+		[ LabelText( "Movement Height Duration" ) ] public float rope_movement_height_duration;
+		[ LabelText( "Movement Height Ease" ) ] public Ease rope_movement_height_ease;
 
     [ Title( "Rope Attach" ) ]
 		[ LabelText( "Rope Attach Jump Power" ) ] public float rope_attach_jump_power;

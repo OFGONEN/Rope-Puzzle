@@ -14,6 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rope_movement_speed: 1
   rope_movement_rotate_speed: 10
+  rope_movement_height: 0.25
+  rope_movement_height_duration: 0.25
+  rope_movement_height_ease: 6
   rope_attach_jump_power: 1
   rope_attach_jump_duration: 0.45
   rope_attach_jump_ease: 6
