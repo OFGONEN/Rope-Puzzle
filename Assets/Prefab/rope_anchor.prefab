@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1223672755167652847}
-  - component: {fileID: 6108726333696883828}
+  - component: {fileID: 6401501384598593744}
   m_Layer: 31
   m_Name: collider
   m_TagString: Untagged
@@ -32,8 +32,8 @@ Transform:
   m_Father: {fileID: 4796321448139793364}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!135 &6108726333696883828
-SphereCollider:
+--- !u!65 &6401501384598593744
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -43,8 +43,8 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.25
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.5, y: 0.05, z: 0.5}
+  m_Center: {x: 0, y: 0.025, z: 0}
 --- !u!1 &2404283595254429830
 GameObject:
   m_ObjectHideFlags: 0
@@ -71,7 +71,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2404283595254429830}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.25, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -102,7 +102,7 @@ MonoBehaviour:
   event_rope_button_attach_done: {fileID: 11400000, guid: e4aa046d2d0fc42179e266f413baa12d, type: 2}
   event_rope_button_detach_done: {fileID: 11400000, guid: 04e9f53fef4f84f6d9a9a9ded786eaf2, type: 2}
   _rigidbody: {fileID: 4941911604783736640}
-  _collider: {fileID: 6108726333696883828}
+  _collider: {fileID: 6401501384598593744}
 --- !u!54 &4941911604783736640
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -362,14 +362,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: gfx_rope_anchor
       objectReference: {fileID: 0}
-    - target: {fileID: 5283344954939151499, guid: 4c21faf1e99014e5c90550d9d9db1242, type: 3}
-      propertyPath: m_Layer
-      value: 31
-      objectReference: {fileID: 0}
-    - target: {fileID: 6165409936347453590, guid: 4c21faf1e99014e5c90550d9d9db1242, type: 3}
-      propertyPath: m_Layer
-      value: 31
-      objectReference: {fileID: 0}
     - target: {fileID: 6910747829855775280, guid: 4c21faf1e99014e5c90550d9d9db1242, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -380,7 +372,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6910747829855775280, guid: 4c21faf1e99014e5c90550d9d9db1242, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.02
       objectReference: {fileID: 0}
     - target: {fileID: 6910747829855775280, guid: 4c21faf1e99014e5c90550d9d9db1242, type: 3}
       propertyPath: m_LocalPosition.z
