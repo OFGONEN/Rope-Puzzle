@@ -151,6 +151,13 @@ namespace FFStudio
 			baseTransform.rotation = Quaternion.LookRotation( newDirection );
 		}
 
+		public static void LookAtDirectionOverTimeFixedTime( this Transform baseTransform, Vector3 direction, float speed )
+		{
+			Vector3 newDirection = Vector3.RotateTowards( baseTransform.forward, direction, speed * Time.fixedDeltaTime, 0.0f );
+
+			baseTransform.rotation = Quaternion.LookRotation( newDirection );
+		}
+
 		public static void EmptyMethod()
 		{
 			/* Intentionally empty, by definition. */
