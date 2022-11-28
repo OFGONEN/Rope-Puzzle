@@ -13,6 +13,16 @@ namespace FFStudio
     [ Title( "Rope Anchor" ) ]
 		[ LabelText( "Movement Speed" ) ] public float rope_movement_speed;
 		[ LabelText( "Movement Rotate Speed" ) ] public float rope_movement_rotate_speed;
+
+    [ Title( "Rope Attach" ) ]
+		[ LabelText( "Rope Attach Jump Power" ) ] public float rope_attach_jump_power;
+		[ LabelText( "Rope Attach Jump Duration" ) ] public float rope_attach_jump_duration;
+		[ LabelText( "Rope Attach Jump Ease" ) ] public Ease rope_attach_jump_ease;
+		[ LabelText( "Rope Attach Rotate Duration" ) ] public float rope_attach_rotate_duration;
+		[ LabelText( "Rope Attach Rotate Ease" ) ] public Ease rope_attach_rotate_ease;
+		[ LabelText( "Rope Attach Delay" ) ] public float rope_attach_delay;
+		[ LabelText( "Rope Attach Fall Duration" ) ] public float rope_attach_fall_duration;
+		[ LabelText( "Rope Attach Fall Ease" ) ] public Ease rope_attach_fall_ease;
     
     [ Title( "Camera" ) ]
         [ LabelText( "Follow Speed (Z)" ), SuffixLabel( "units/seconds" ), Min( 0 ) ] public float camera_follow_speed_depth = 2.8f;
