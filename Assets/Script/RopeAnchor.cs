@@ -18,12 +18,16 @@ public class RopeAnchor : MonoBehaviour
     [ SerializeField ] GameEvent event_input_joystick_enable;
     [ SerializeField ] GameEvent event_input_joystick_disable;
     [ SerializeField ] GameEvent event_rope_button_attach_done;
+    [ SerializeField ] GameEvent event_rope_button_detach_done;
 
   [ Title( "Components" ) ]
     [ SerializeField ] Rigidbody _rigidbody;
     [ SerializeField ] Collider _collider;
 
 	RecycledSequence recycledSequence = new RecycledSequence();
+
+	Vector3 rope_attach_position;
+	Vector3 rope_attach_rotation;
 
 	UnityMessage onFixedUpdate;
     UnityMessage onFingerDown;
@@ -71,18 +75,41 @@ public class RopeAnchor : MonoBehaviour
 		EmptyDelegates();
 		event_input_joystick_disable.Raise();
 
-		var targetPosition = notif_button_position.sharedValue;
+		_rigidbody.isKinematic = true;
+
+		rope_attach_position = transform.position;
+		rope_attach_rotation = transform.eulerAngles;
+
+		var buttonPosition = notif_button_position.sharedValue;
 
 		var sequence = recycledSequence.Recycle( OnAttachDone );
 
-		sequence.Append( transform.DOJump( targetPosition, GameSettings.Instance.rope_attach_jump_power, 1, GameSettings.Instance.rope_attach_jump_duration ).SetEase( GameSettings.Instance.rope_attach_jump_ease ) );
+		sequence.Append( transform.DOJump( buttonPosition, GameSettings.Instance.rope_attach_jump_power, 1, GameSettings.Instance.rope_attach_jump_duration ).SetEase( GameSettings.Instance.rope_attach_jump_ease ) );
 
-		sequence.Join( transform.DOLookAt( targetPosition, GameSettings.Instance.rope_attach_rotate_duration, AxisConstraint.Y ).SetEase( GameSettings.Instance.rope_attach_rotate_ease ) );
+		sequence.Join( transform.DOLookAt( buttonPosition, GameSettings.Instance.rope_attach_rotate_duration, AxisConstraint.Y ).SetEase( GameSettings.Instance.rope_attach_rotate_ease ) );
 
 		sequence.AppendInterval( GameSettings.Instance.rope_attach_delay );
 
-		sequence.Append( transform.DOMove( targetPosition.SetY( 0 ), GameSettings.Instance.rope_attach_fall_duration )
+		sequence.Append( transform.DOMove( buttonPosition.SetY( 0 ), GameSettings.Instance.rope_attach_fall_duration )
 			.SetEase( GameSettings.Instance.rope_attach_fall_ease ) );
+	}
+
+	public void OnRopeDetach()
+	{
+		var buttonPosition = notif_button_position.sharedValue;
+
+		var sequence = recycledSequence.Recycle( OnDetachDone );
+
+		sequence.Append( transform.DOMove( buttonPosition, GameSettings.Instance.rope_detach_rise_duration )
+			.SetEase( GameSettings.Instance.rope_detach_rise_ease ) );
+
+		sequence.AppendInterval( GameSettings.Instance.rope_detach_delay );
+
+		sequence.Append( transform.DOJump( rope_attach_position.SetY( 0 ), GameSettings.Instance.rope_detach_jump_power, 1, GameSettings.Instance.rope_detach_jump_duration )
+			.SetEase( GameSettings.Instance.rope_detach_jump_ease ) );
+
+		sequence.Join( transform.DORotate( rope_attach_rotation, GameSettings.Instance.rope_detach_rotate_duration )
+		.SetEase( GameSettings.Instance.rope_detach_rotate_ease ) );
 	}
 #endregion
 
@@ -90,6 +117,11 @@ public class RopeAnchor : MonoBehaviour
 	void OnAttachDone()
 	{
 		event_rope_button_attach_done.Raise();
+	}
+
+	void OnDetachDone()
+	{
+		event_rope_button_detach_done.Raise();
 	}
 
     void StartMovement()
