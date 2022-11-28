@@ -46,6 +46,7 @@ public class RopeAnchor : MonoBehaviour
     void Awake()
     {
 		EmptyDelegates();
+		_rigidbody.isKinematic = false;
 	}
 
 	void FixedUpdate()
@@ -129,6 +130,8 @@ public class RopeAnchor : MonoBehaviour
 		onFingerDown  = ExtensionMethods.EmptyMethod;
 		onFingerUp    = StopMovement;
 		onFixedUpdate = Movement;
+
+		_rigidbody.isKinematic = false;
 
 		event_input_joystick_enable.Raise();
 	}
