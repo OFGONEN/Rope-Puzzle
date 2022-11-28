@@ -24,10 +24,10 @@ namespace FFStudio
 		[ LabelText( "Rope Attach Fall Duration" ) ] public float rope_attach_fall_duration;
 		[ LabelText( "Rope Attach Fall Ease" ) ] public Ease rope_attach_fall_ease;
 
-    [ Title( "Rope Attach" ) ]
+    [ Title( "Rope Detach" ) ]
 		[ LabelText( "Rope Detach Rise Duration" ) ] public float rope_detach_rise_duration;
 		[ LabelText( "Rope Detach Rise Ease" ) ] public Ease rope_detach_rise_ease;
-		[ LabelText( "Rope Detach Delat" ) ] public float rope_detach_delay;
+		[ LabelText( "Rope Detach Delay" ) ] public float rope_detach_delay;
 		[ LabelText( "Rope Detach Jump Power" ) ] public float rope_detach_jump_power;
 		[ LabelText( "Rope Detach Jump Duration" ) ] public float rope_detach_jump_duration;
 		[ LabelText( "Rope Detach Jump Ease" ) ] public Ease rope_detach_jump_ease;
