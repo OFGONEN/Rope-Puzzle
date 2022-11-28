@@ -7,56 +7,56 @@ using Sirenix.OdinInspector;
 public class UI_Input_Joystick : UIEntity
 {
 #region Fields
-[ Title( "Setup" ) ] 
+  [ Title( "Shared Variable" ) ]
+    public SharedInput_JoyStick input_joyStick;
+
+  [ Title( "Components" ) ] 
     public RectTransform image_base;
     public RectTransform image_stick;
-    public SharedInput_JoyStick input_JoyStick;
+
+	UnityMessage onUpdate;
 #endregion
 
 #region Properties
 #endregion
 
 #region Unity API
-    void OnEnable()
-    {
-		input_JoyStick.input_toggle.Subscribe( InputToggle );
-	}
-
-    void OnDisable()
-    {
-		input_JoyStick.input_toggle.Unsubscribe( InputToggle );
-	}
-
 	void Awake()
 	{
 		image_base.gameObject.SetActive( false );
+
+		onUpdate = ExtensionMethods.EmptyMethod;
+	}
+
+	void Update()
+	{
+		onUpdate();
 	}
 #endregion
 
 #region API
+	public void OnJoystickUIEnable()
+	{
+		image_base.gameObject.SetActive( true );
+		onUpdate = SetJoystickPosition;
+
+		var position   = input_joyStick.FingerPosition;
+		    position.y = uiTransform.position.y;
+
+		uiTransform.position = position;
+	}
+
+	public void OnJoystickUIDisable()
+	{
+		image_base.gameObject.SetActive( false );
+		onUpdate = ExtensionMethods.EmptyMethod;
+	}
 #endregion
 
 #region Implementation
-    void InputToggle()
-    {
-		var enabled = input_JoyStick.Input_Enabled;
-		image_base.gameObject.SetActive( input_JoyStick.Input_Enabled );
-
-		if( enabled )
-		{
-			input_JoyStick.Subscribe( InputChange );
-
-			var position             = input_JoyStick.Input_Screen_Position;
-			    position.y           = uiTransform.position.y;
-			    uiTransform.position = position;
-		}
-        else
-			input_JoyStick.Unsubscribe( InputChange );
-	}
-
-    void InputChange()
-    {
-		image_stick.anchoredPosition = image_base.anchoredPosition + input_JoyStick.SharedValue * GameSettings.Instance.ui_Entity_JoyStick_Gap;
+	void SetJoystickPosition()
+	{
+		image_stick.anchoredPosition = image_base.anchoredPosition + input_joyStick.SharedValue * GameSettings.Instance.ui_Entity_JoyStick_Gap;
 	}
 #endregion
 
