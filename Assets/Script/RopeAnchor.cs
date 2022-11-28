@@ -25,6 +25,7 @@ public class RopeAnchor : MonoBehaviour
     [ SerializeField ] Collider _collider;
 
 	RecycledSequence recycledSequence = new RecycledSequence();
+	RecycledTween    recycledTween    = new RecycledTween();
 
 	Vector3 rope_attach_position;
 	Vector3 rope_attach_rotation;
@@ -74,12 +75,15 @@ public class RopeAnchor : MonoBehaviour
 	public void OnRopeAttach()
 	{
 		EmptyDelegates();
+
 		event_input_joystick_disable.Raise();
 
+		recycledTween.Kill(); // Kill height change tween
 		_rigidbody.isKinematic = true;
 
 		rope_attach_position = transform.position;
 		rope_attach_rotation = transform.eulerAngles;
+
 
 		var buttonPosition = notif_button_position.sharedValue;
 
@@ -131,6 +135,8 @@ public class RopeAnchor : MonoBehaviour
 		onFingerUp    = StopMovement;
 		onFixedUpdate = Movement;
 
+		IncreaseHeight();
+
 		_rigidbody.isKinematic = false;
 
 		event_input_joystick_enable.Raise();
@@ -140,7 +146,10 @@ public class RopeAnchor : MonoBehaviour
     {
 		EmptyDelegates();
 
-		_rigidbody.velocity = Vector3.zero;
+		DecreaseHeight();
+
+		_rigidbody.velocity    = Vector3.zero;
+		_rigidbody.isKinematic = true;
 
 		onFingerDown = StartMovement;
 
@@ -151,6 +160,19 @@ public class RopeAnchor : MonoBehaviour
     {
 		_rigidbody.velocity = shared_input_joystick.sharedValue.ConvertV3_Z() * GameSettings.Instance.rope_movement_speed;
 		transform.LookAtDirectionOverTimeFixedTime( shared_input_joystick.sharedValue.ConvertV3_Z(), GameSettings.Instance.rope_movement_rotate_speed );
+	}
+
+	void IncreaseHeight()
+	{
+		recycledTween.Recycle( transform.DOMoveY( GameSettings.Instance.rope_movement_height, GameSettings.Instance.rope_movement_height_duration )
+			.SetEase( GameSettings.Instance.rope_movement_height_ease )
+			.SetRelative() );
+	}
+
+	void DecreaseHeight()
+	{
+		recycledTween.Recycle( transform.DOMoveY( 0, GameSettings.Instance.rope_movement_height_duration )
+			.SetEase( GameSettings.Instance.rope_movement_height_ease ) );
 	}
 
     void EmptyDelegates()
