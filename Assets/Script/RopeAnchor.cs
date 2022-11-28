@@ -45,18 +45,15 @@ public class RopeAnchor : MonoBehaviour
     public void OnLevelStart()
     {
 		onFingerDown = StartMovement;
-		FFLogger.Log( "On Level Start", this );
 	}
 
     public void OnFingerDown()
     {
-		FFLogger.Log( "On Finger Down", this );
 		onFingerDown();
 	}
 
     public void OnFingerUp()
     {
-		FFLogger.Log( "On Finger Up", this );
 		onFingerUp();
 	}
 #endregion
