@@ -10,6 +10,9 @@ namespace FFStudio
     {
 #region Fields (Settings)
     // Info: You can use Title() attribute ONCE for every game-specific group of settings.
+    [ Title( "Rope Anchor" ) ]
+		[ LabelText( "Movement Speed" ) ] public float rope_movement_speed;
+		[ LabelText( "Movement Rotate Speed" ) ] public float rope_movement_rotate_speed;
     
     [ Title( "Camera" ) ]
         [ LabelText( "Follow Speed (Z)" ), SuffixLabel( "units/seconds" ), Min( 0 ) ] public float camera_follow_speed_depth = 2.8f;
