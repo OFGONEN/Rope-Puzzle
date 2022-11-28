@@ -23,14 +23,24 @@ namespace FFStudio
 		[ LabelText( "Rope Attach Delay" ) ] public float rope_attach_delay;
 		[ LabelText( "Rope Attach Fall Duration" ) ] public float rope_attach_fall_duration;
 		[ LabelText( "Rope Attach Fall Ease" ) ] public Ease rope_attach_fall_ease;
+
+    [ Title( "Rope Attach" ) ]
+		[ LabelText( "Rope Detach Rise Duration" ) ] public float rope_detach_rise_duration;
+		[ LabelText( "Rope Detach Rise Ease" ) ] public Ease rope_detach_rise_ease;
+		[ LabelText( "Rope Detach Delat" ) ] public float rope_detach_delay;
+		[ LabelText( "Rope Detach Jump Power" ) ] public float rope_detach_jump_power;
+		[ LabelText( "Rope Detach Jump Duration" ) ] public float rope_detach_jump_duration;
+		[ LabelText( "Rope Detach Jump Ease" ) ] public Ease rope_detach_jump_ease;
+		[ LabelText( "Rope Detach Rotate Duration" ) ] public float rope_detach_rotate_duration;
+		[ LabelText( "Rope Detach Rotate Ease" ) ] public Ease rope_detach_rotate_ease;
     
     [ Title( "Camera" ) ]
         [ LabelText( "Follow Speed (Z)" ), SuffixLabel( "units/seconds" ), Min( 0 ) ] public float camera_follow_speed_depth = 2.8f;
     
     [ Title( "Project Setup", "These settings should not be edited by Level Designer(s).", TitleAlignments.Centered ) ]
         public int maxLevelCount;
-        
-        // Info: 3 groups below (coming from template project) are foldout by design: They should remain hidden.
+
+		// Info: 3 groups below (coming from template project) are foldout by design: They should remain hidden.
 		[ FoldoutGroup( "Remote Config" ) ] public bool useRemoteConfig_GameSettings;
         [ FoldoutGroup( "Remote Config" ) ] public bool useRemoteConfig_Components;
 
