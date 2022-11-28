@@ -12,16 +12,20 @@ public class RopeAnchor : MonoBehaviour
 #region Fields
   [ Title( "Shared Variables" ) ]
     [ SerializeField ] SharedInput_JoyStick shared_input_joystick;
+    [ SerializeField ] SharedVector3Notifier notif_button_position;
 
   [ Title( "Fired Events" ) ]
     [ SerializeField ] GameEvent event_input_joystick_enable;
     [ SerializeField ] GameEvent event_input_joystick_disable;
+    [ SerializeField ] GameEvent event_rope_button_attach_done;
 
   [ Title( "Components" ) ]
     [ SerializeField ] Rigidbody _rigidbody;
     [ SerializeField ] Collider _collider;
 
-    UnityMessage onFixedUpdate;
+	RecycledSequence recycledSequence = new RecycledSequence();
+
+	UnityMessage onFixedUpdate;
     UnityMessage onFingerDown;
     UnityMessage onFingerUp;
 #endregion
@@ -30,6 +34,11 @@ public class RopeAnchor : MonoBehaviour
 #endregion
 
 #region Unity API
+	private void OnDisable()
+	{
+		recycledSequence.Kill();
+	}
+	
     void Awake()
     {
 		EmptyDelegates();
@@ -56,9 +65,33 @@ public class RopeAnchor : MonoBehaviour
     {
 		onFingerUp();
 	}
+
+	public void OnRopeAttach()
+	{
+		EmptyDelegates();
+		event_input_joystick_disable.Raise();
+
+		var targetPosition = notif_button_position.sharedValue;
+
+		var sequence = recycledSequence.Recycle( OnAttachDone );
+
+		sequence.Append( transform.DOJump( targetPosition, GameSettings.Instance.rope_attach_jump_power, 1, GameSettings.Instance.rope_attach_jump_duration ).SetEase( GameSettings.Instance.rope_attach_jump_ease ) );
+
+		sequence.Join( transform.DOLookAt( targetPosition, GameSettings.Instance.rope_attach_rotate_duration, AxisConstraint.Y ).SetEase( GameSettings.Instance.rope_attach_rotate_ease ) );
+
+		sequence.AppendInterval( GameSettings.Instance.rope_attach_delay );
+
+		sequence.Append( transform.DOMove( targetPosition.SetY( 0 ), GameSettings.Instance.rope_attach_fall_duration )
+			.SetEase( GameSettings.Instance.rope_attach_fall_ease ) );
+	}
 #endregion
 
 #region Implementation
+	void OnAttachDone()
+	{
+		event_rope_button_attach_done.Raise();
+	}
+
     void StartMovement()
     {
 		onFingerDown  = ExtensionMethods.EmptyMethod;
