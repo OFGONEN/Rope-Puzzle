@@ -36,6 +36,10 @@ namespace FFStudio
 		[ LabelText( "Rope Detach Jump Ease" ) ] public Ease rope_detach_jump_ease;
 		[ LabelText( "Rope Detach Rotate Duration" ) ] public float rope_detach_rotate_duration;
 		[ LabelText( "Rope Detach Rotate Ease" ) ] public Ease rope_detach_rotate_ease;
+
+    [ Title( "Button" ) ]
+		[ LabelText( "Button Color Change Duration" ) ] public float button_color_change_duration;
+		[ LabelText( "Button Color Change Ease" ) ] public Ease button_color_change_ease;
     
     [ Title( "Camera" ) ]
         [ LabelText( "Follow Speed" ), SuffixLabel( "units/seconds" ), Min( 0 ) ] public float camera_follow_speed = 2.8f;
