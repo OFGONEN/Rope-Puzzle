@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4197693783732842420}
   - component: {fileID: 5775170609896753694}
   m_Layer: 0
-  m_Name: test_gfx
+  m_Name: test_gfx_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -162,7 +162,7 @@ GameObject:
   - component: {fileID: 1025240989045660809}
   - component: {fileID: 7489041836487111993}
   m_Layer: 31
-  m_Name: Cone
+  m_Name: test_gfx_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
