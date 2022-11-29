@@ -15,7 +15,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &5366812294473461512
 Transform:
@@ -61,6 +61,18 @@ PrefabInstance:
     - target: {fileID: 2187278840902864185, guid: 74bab3b55e67f544496da4db98fffece, type: 3}
       propertyPath: m_Name
       value: wall_inner_tweener
+      objectReference: {fileID: 0}
+    - target: {fileID: 2187278840902864185, guid: 74bab3b55e67f544496da4db98fffece, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3857444065127726293, guid: 74bab3b55e67f544496da4db98fffece, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5272246716902263682, guid: 74bab3b55e67f544496da4db98fffece, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8748011729527541714, guid: 74bab3b55e67f544496da4db98fffece, type: 3}
       propertyPath: m_RootOrder
