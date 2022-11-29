@@ -8,7 +8,8 @@ namespace FFStudio
 {
 	public class ColorSetter : MonoBehaviour
 	{
-#region Fields
+		#region Fields
+		[ TitleGroup( "Setup" ), SerializeField ] Renderer _renderer;
 		[ TitleGroup( "Setup" ), SerializeField ] Color[] color_array;
 		[ ShowInInspector, ReadOnly ] Color color_current;
 		[ ShowInInspector, ReadOnly ] int color_index;
@@ -16,7 +17,6 @@ namespace FFStudio
 		RecycledTween recycledTween = new RecycledTween();
 
 		static int SHADER_ID_COLOR = Shader.PropertyToID( "_BaseColor" );
-		Renderer theRenderer;
 		MaterialPropertyBlock propertyBlock;
 #endregion
 
@@ -26,8 +26,6 @@ namespace FFStudio
 #region Unity API
 		void Awake()
 		{
-			theRenderer = GetComponent< Renderer >();
-
 			propertyBlock = new MaterialPropertyBlock();
 		}
 #endregion
@@ -64,9 +62,9 @@ namespace FFStudio
 
 		void SetColor()
 		{
-			theRenderer.GetPropertyBlock( propertyBlock );
+			_renderer.GetPropertyBlock( propertyBlock );
 			propertyBlock.SetColor( SHADER_ID_COLOR, color_current );
-			theRenderer.SetPropertyBlock( propertyBlock );
+			_renderer.SetPropertyBlock( propertyBlock );
 		}
 
 		Color GetColor()
