@@ -127,6 +127,8 @@ public class RopeAnchor : MonoBehaviour
 	void OnDetachDone()
 	{
 		event_rope_button_detach_done.Raise();
+		
+		onFingerDown = StartMovement;
 	}
 
     void StartMovement()
