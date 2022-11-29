@@ -33,7 +33,9 @@ MonoBehaviour:
   rope_detach_jump_ease: 6
   rope_detach_rotate_duration: 0.2
   rope_detach_rotate_ease: 6
-  camera_follow_speed_depth: 2.8
+  camera_follow_speed: 2.8
+  camera_follow_offset: {x: 0, y: 3.5, z: -3.2}
+  camera_follow_rotation: {x: 30, y: 0, z: 0}
   maxLevelCount: 1
   useRemoteConfig_GameSettings: 0
   useRemoteConfig_Components: 0
