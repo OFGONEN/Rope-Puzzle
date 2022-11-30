@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5247262678167607472}
   - component: {fileID: 5247262678167607477}
   m_Layer: 0
-  m_Name: rope_prefab
+  m_Name: rope_base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
