@@ -291,6 +291,7 @@ GameObject:
   - component: {fileID: 2015575555097548035}
   - component: {fileID: 2737836625839395902}
   - component: {fileID: 9008371549511707308}
+  - component: {fileID: 7475392668060400345}
   m_Layer: 30
   m_Name: collider
   m_TagString: Untagged
@@ -379,3 +380,20 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &7475392668060400345
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9106767019550983690}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6757b231cedd544c583ef8aeaf773b2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thickness: 0
+  material: {fileID: 0}
+  filter: 65538
+  m_SourceCollider: {fileID: 2737836625839395902}
+  m_DistanceField: {fileID: 0}
