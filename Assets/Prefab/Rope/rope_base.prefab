@@ -1,5 +1,99 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3828009912155644044
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3175179426090676686}
+  - component: {fileID: 1311880826147041966}
+  m_Layer: 31
+  m_Name: logic_respond
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3175179426090676686
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3828009912155644044}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5247262678167607478}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1311880826147041966
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3828009912155644044}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1aa1f021c399944afb705e81a336c658, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  respond_data_array:
+  - rid: 2955885971433062402
+  - rid: 2955885971433062404
+  references:
+    version: 2
+    RefIds:
+    - rid: 2955885971433062402
+      type: {class: EventFloatGameEventResponseData, ns: FFStudio, asm: Assembly-CSharp}
+      data:
+        eventListener:
+          gameEvents:
+          - {fileID: 11400000, guid: 83d422310b77b9a4c976920f9cc421c4, type: 2}
+        unityEvent:
+          m_PersistentCalls:
+            m_Calls:
+            - m_Target: {fileID: 5247262678167607477}
+              m_TargetAssemblyTypeName: Rope, Assembly-CSharp
+              m_MethodName: OnRopeChangeLength
+              m_Mode: 0
+              m_Arguments:
+                m_ObjectArgument: {fileID: 0}
+                m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+                m_IntArgument: 0
+                m_FloatArgument: 0
+                m_StringArgument: 
+                m_BoolArgument: 0
+              m_CallState: 2
+        argument: {fileID: 11400000, guid: 83d422310b77b9a4c976920f9cc421c4, type: 2}
+    - rid: 2955885971433062404
+      type: {class: EventRopeMaterialGameEventResponseData, ns: FFStudio, asm: Assembly-CSharp}
+      data:
+        eventListener:
+          gameEvents:
+          - {fileID: 11400000, guid: 0256f5003aab0af4a9e035af8d2514b7, type: 2}
+        unityEvent:
+          m_PersistentCalls:
+            m_Calls:
+            - m_Target: {fileID: 5247262678167607477}
+              m_TargetAssemblyTypeName: Rope, Assembly-CSharp
+              m_MethodName: OnRopeChangeMaterial
+              m_Mode: 0
+              m_Arguments:
+                m_ObjectArgument: {fileID: 0}
+                m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+                m_IntArgument: 0
+                m_FloatArgument: 0
+                m_StringArgument: 
+                m_BoolArgument: 0
+              m_CallState: 2
+        argument: {fileID: 11400000, guid: 0256f5003aab0af4a9e035af8d2514b7, type: 2}
 --- !u!1 &5247262678167607473
 GameObject:
   m_ObjectHideFlags: 0
@@ -32,6 +126,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5247262678753712609}
+  - {fileID: 3175179426090676686}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
