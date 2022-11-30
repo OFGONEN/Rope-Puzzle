@@ -13,6 +13,8 @@ public class RopeAnchor : MonoBehaviour
   [ Title( "Shared Variables" ) ]
     [ SerializeField ] SharedInput_JoyStick shared_input_joystick;
     [ SerializeField ] SharedVector3Notifier notif_button_position;
+    [ SerializeField ] SharedReferenceNotifier notif_level_end;
+    [ SerializeField ] SharedFloatNotifier notif_level_progress;
 
   [ Title( "Fired Events" ) ]
     [ SerializeField ] GameEvent event_input_joystick_enable;
@@ -29,7 +31,10 @@ public class RopeAnchor : MonoBehaviour
 
 	Vector3 rope_attach_position;
 	Vector3 rope_attach_rotation;
+	Vector3 level_end_position;
+	float level_end_distance;
 
+	UnityMessage onUpdate;
 	UnityMessage onFixedUpdate;
     UnityMessage onFingerDown;
     UnityMessage onFingerUp;
@@ -46,7 +51,11 @@ public class RopeAnchor : MonoBehaviour
 	
     void Awake()
     {
+		onUpdate = ExtensionMethods.EmptyMethod;
 		EmptyDelegates();
+
+		notif_level_progress.SetValue_NotifyAlways( 0 );
+
 		_rigidbody.isKinematic = false;
 	}
 
@@ -54,12 +63,29 @@ public class RopeAnchor : MonoBehaviour
 	{
 		onFixedUpdate();
 	}
+
+	private void Update()
+	{
+		onUpdate();
+	}
 #endregion
 
 #region API
     public void OnLevelStart()
     {
 		onFingerDown = StartMovement;
+		level_end_position = ( notif_level_end.sharedValue as Transform ).position.SetY( 0 );
+		level_end_distance = Vector3.Distance( level_end_position.SetY( 0 ), transform.position.SetY( 0 ) ) - GameSettings.Instance.game_level_end_distance_offset;
+
+		FFLogger.Log( "Level End Distance: " + level_end_distance );
+
+		onUpdate = UpdateLevelProgress;
+	}
+
+	public void OnLevelFinished()
+	{
+		onUpdate = ExtensionMethods.EmptyMethod;
+		notif_level_progress.SetValue_NotifyAlways( 1 );
 	}
 
     public void OnFingerDown()
@@ -120,6 +146,12 @@ public class RopeAnchor : MonoBehaviour
 #endregion
 
 #region Implementation
+	void UpdateLevelProgress()
+	{
+		var currentDistance                  = Vector3.Distance( transform.position.SetY( 0 ), level_end_position ) - GameSettings.Instance.game_level_end_distance_offset;
+		    notif_level_progress.SharedValue = Mathf.InverseLerp( level_end_distance, 0, currentDistance );
+	}
+
 	void OnAttachDone()
 	{
 		event_rope_button_attach_done.Raise();
