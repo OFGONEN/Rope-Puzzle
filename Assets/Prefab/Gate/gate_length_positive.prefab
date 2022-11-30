@@ -11,6 +11,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: gate_length_positive
       objectReference: {fileID: 0}
+    - target: {fileID: 5142137164939943130, guid: 5b8d67ec03611e941a2dab438818cea3, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5142137164939943130, guid: 5b8d67ec03611e941a2dab438818cea3, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.g
+      value: 0.6431373
+      objectReference: {fileID: 0}
+    - target: {fileID: 5142137164939943130, guid: 5b8d67ec03611e941a2dab438818cea3, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.r
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7952130272980345968, guid: 5b8d67ec03611e941a2dab438818cea3, type: 3}
       propertyPath: m_RootOrder
       value: 0
