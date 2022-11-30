@@ -37,6 +37,7 @@ public class Rope : MonoBehaviour
 		rope_renderer.sharedMaterial = ropeMaterial.Material;
 	}
 
+	[ Button() ]
     public void OnRopeChangeLength( float delta )
     {
 		rope_cursor.ChangeLength( delta );
