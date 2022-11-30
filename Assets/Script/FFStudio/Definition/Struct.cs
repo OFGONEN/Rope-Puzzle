@@ -158,6 +158,17 @@ namespace FFStudio
 	}
 
 	[ Serializable ]
+	public class EventRopeMaterialGameEventResponseData : EventResponseGenericData< RopeMaterial >
+	{
+		public RopeMaterialGameEvent argument;
+
+		protected override void OnResponse()
+		{
+			unityEvent.Invoke( argument.eventValue );
+		}
+	}
+
+	[ Serializable ]
 	public struct ParticleData
 	{
 		public ParticleSpawnEvent particle_event;
