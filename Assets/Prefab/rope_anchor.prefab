@@ -60,7 +60,7 @@ MonoBehaviour:
   event_rope_button_attach_done: {fileID: 11400000, guid: e4aa046d2d0fc42179e266f413baa12d, type: 2}
   event_rope_button_detach_done: {fileID: 11400000, guid: 04e9f53fef4f84f6d9a9a9ded786eaf2, type: 2}
   _rigidbody: {fileID: 4941911604783736640}
-  _collider: {fileID: 0}
+  _collider: {fileID: 7473527155686378545}
 --- !u!114 &6761476270596706518
 MonoBehaviour:
   m_ObjectHideFlags: 0
