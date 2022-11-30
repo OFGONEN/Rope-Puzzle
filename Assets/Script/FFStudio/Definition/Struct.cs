@@ -176,6 +176,11 @@ namespace FFStudio
 		public bool parent;
 		public Vector3 offset;
 		public float size;
+
+		public void Raise( Vector3 position, Transform parent )
+		{
+			particle_event.Raise( alias, position + offset, parent, size );
+		}
 	}
 
 	[ Serializable ]
