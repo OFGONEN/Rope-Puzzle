@@ -40,8 +40,8 @@ public class Rope : MonoBehaviour
 	[ Button() ]
     public void OnRopeChangeLength( float delta )
     {
-		rope_cursor.ChangeLength( delta );
 		rope_length.IncrementByAmount( delta );
+		rope_cursor.ChangeLength( rope_length.sharedValue );
 	}
 #endregion
 
