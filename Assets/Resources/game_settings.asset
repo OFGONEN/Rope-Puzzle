@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a385bd3b4416492409284c9a366cb52a, type: 3}
   m_Name: game_settings
   m_EditorClassIdentifier: 
-  rope_movement_speed: 1
+  rope_movement_speed: 3
   rope_movement_rotate_speed: 10
   rope_movement_height: 0.25
   rope_movement_height_duration: 0.25
   rope_movement_height_ease: 6
-  rope_attach_jump_power: 1
+  rope_attach_jump_power: 0.5
   rope_attach_jump_duration: 0.45
   rope_attach_jump_ease: 6
   rope_attach_rotate_duration: 0.25
@@ -28,7 +28,7 @@ MonoBehaviour:
   rope_detach_rise_duration: 0.15
   rope_detach_rise_ease: 6
   rope_detach_delay: 0.1
-  rope_detach_jump_power: 0.7
+  rope_detach_jump_power: 0.4
   rope_detach_jump_duration: 0.3
   rope_detach_jump_ease: 6
   rope_detach_rotate_duration: 0.2
