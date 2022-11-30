@@ -64,9 +64,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 960968544522165422, guid: ba09bd30eb277d14485b7747011c3929, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2775529878824381762, guid: ba09bd30eb277d14485b7747011c3929, type: 3}
       propertyPath: m_Name
       value: wall_inner
+      objectReference: {fileID: 0}
+    - target: {fileID: 2775529878824381762, guid: ba09bd30eb277d14485b7747011c3929, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4735888423439675305, guid: ba09bd30eb277d14485b7747011c3929, type: 3}
       propertyPath: m_RootOrder
