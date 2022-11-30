@@ -9,7 +9,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3413540548337772386, guid: 576f3ee3bd1baf342abe2572452c3834, type: 3}
       propertyPath: m_Name
-      value: gate_material_default
+      value: gate_material_strong
       objectReference: {fileID: 0}
     - target: {fileID: 6264187440129819126, guid: 576f3ee3bd1baf342abe2572452c3834, type: 3}
       propertyPath: m_RootOrder
@@ -55,5 +55,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6815045455937864393, guid: 576f3ee3bd1baf342abe2572452c3834, type: 3}
+      propertyPath: unityEvent.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 11400000, guid: ff7433c472558654fa95b258d7edc04c, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 576f3ee3bd1baf342abe2572452c3834, type: 3}
