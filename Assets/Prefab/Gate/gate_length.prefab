@@ -121,9 +121,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f77718ad7ea085c459ffbe50ae595353, type: 3}
---- !u!4 &7952130272980345968 stripped
+--- !u!4 &781353025715068091 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 8197558515142244162, guid: f77718ad7ea085c459ffbe50ae595353, type: 3}
+  m_CorrespondingSourceObject: {fileID: 1535688163211333513, guid: f77718ad7ea085c459ffbe50ae595353, type: 3}
   m_PrefabInstance: {fileID: 2276622734342984498}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5952724183129546544
@@ -131,7 +131,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 7952130272980345968}
+    m_TransformParent: {fileID: 781353025715068091}
     m_Modifications:
     - target: {fileID: 1905902845093707656, guid: da9c4571120f3044a91cacef4e53ebca, type: 3}
       propertyPath: m_PresetInfoIsWorld
@@ -163,7 +163,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6864394201947379461, guid: da9c4571120f3044a91cacef4e53ebca, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6864394201947379461, guid: da9c4571120f3044a91cacef4e53ebca, type: 3}
       propertyPath: m_AnchorMax.x
