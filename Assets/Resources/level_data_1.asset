@@ -15,3 +15,4 @@ MonoBehaviour:
   scene_index: 1
   scene_overrideAsActiveScene: 0
   rope_material: {fileID: 11400000, guid: 6670f353745a74e9b81710432bc09ac0, type: 2}
+  rope_length: 2

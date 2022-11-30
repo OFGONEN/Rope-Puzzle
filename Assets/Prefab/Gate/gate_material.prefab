@@ -87,5 +87,37 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8772641525122200701, guid: f77718ad7ea085c459ffbe50ae595353, type: 3}
+      propertyPath: unityEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8772641525122200701, guid: f77718ad7ea085c459ffbe50ae595353, type: 3}
+      propertyPath: unityEvent.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8772641525122200701, guid: f77718ad7ea085c459ffbe50ae595353, type: 3}
+      propertyPath: unityEvent.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 11400000, guid: 0256f5003aab0af4a9e035af8d2514b7, type: 2}
+    - target: {fileID: 8772641525122200701, guid: f77718ad7ea085c459ffbe50ae595353, type: 3}
+      propertyPath: unityEvent.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8772641525122200701, guid: f77718ad7ea085c459ffbe50ae595353, type: 3}
+      propertyPath: unityEvent.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: Raise
+      objectReference: {fileID: 0}
+    - target: {fileID: 8772641525122200701, guid: f77718ad7ea085c459ffbe50ae595353, type: 3}
+      propertyPath: unityEvent.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
+      value: RopeMaterialGameEvent, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8772641525122200701, guid: f77718ad7ea085c459ffbe50ae595353, type: 3}
+      propertyPath: unityEvent.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 11400000, guid: 6670f353745a74e9b81710432bc09ac0, type: 2}
+    - target: {fileID: 8772641525122200701, guid: f77718ad7ea085c459ffbe50ae595353, type: 3}
+      propertyPath: unityEvent.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: RopeMaterial, Assembly-CSharp
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f77718ad7ea085c459ffbe50ae595353, type: 3}

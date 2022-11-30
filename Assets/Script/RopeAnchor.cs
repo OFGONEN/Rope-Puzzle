@@ -80,6 +80,7 @@ public class RopeAnchor : MonoBehaviour
 
 		recycledTween.Kill(); // Kill height change tween
 		_rigidbody.isKinematic = true;
+		_collider.enabled      = false;
 
 		rope_attach_position = transform.position;
 		rope_attach_rotation = transform.eulerAngles;
@@ -126,9 +127,11 @@ public class RopeAnchor : MonoBehaviour
 
 	void OnDetachDone()
 	{
-		event_rope_button_detach_done.Raise();
-		
 		onFingerDown = StartMovement;
+
+		_collider.enabled = true;
+
+		event_rope_button_detach_done.Raise();
 	}
 
     void StartMovement()
