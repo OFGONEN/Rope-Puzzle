@@ -36,12 +36,19 @@ namespace FFStudio
 		[ LabelText( "Rope Detach Jump Ease" ) ] public Ease rope_detach_jump_ease;
 		[ LabelText( "Rope Detach Rotate Duration" ) ] public float rope_detach_rotate_duration;
 		[ LabelText( "Rope Detach Rotate Ease" ) ] public Ease rope_detach_rotate_ease;
+
+    [ Title( "Button" ) ]
+		[ LabelText( "Button Color Change Duration" ) ] public float button_color_change_duration;
+		[ LabelText( "Button Color Change Ease" ) ] public Ease button_color_change_ease;
     
     [ Title( "Camera" ) ]
-        [ LabelText( "Follow Speed (Z)" ), SuffixLabel( "units/seconds" ), Min( 0 ) ] public float camera_follow_speed_depth = 2.8f;
+        [ LabelText( "Follow Speed" ), SuffixLabel( "units/seconds" ), Min( 0 ) ] public float camera_follow_speed = 2.8f;
+        [ LabelText( "Follow Offset" ) ] public Vector3 camera_follow_offset;
+        [ LabelText( "Follow Rotation" ) ] public Vector3 camera_follow_rotation;
     
     [ Title( "Project Setup", "These settings should not be edited by Level Designer(s).", TitleAlignments.Centered ) ]
         public int maxLevelCount;
+        public float game_level_end_distance_offset = 1.2f;
 
 		// Info: 3 groups below (coming from template project) are foldout by design: They should remain hidden.
 		[ FoldoutGroup( "Remote Config" ) ] public bool useRemoteConfig_GameSettings;

@@ -146,7 +146,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bb1e6ed2b00bf54481887a02ec8fad7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  notifier_reference_transform_target: {fileID: 11400000, guid: 488e798dd6f140e4a84fa7485b885dd3, type: 2}
+  notifier_reference_transform_target: {fileID: 11400000, guid: 6cbd55ac77a8f5340bd9ab56f738f99f, type: 2}
 --- !u!1 &3747325266785291023
 GameObject:
   m_ObjectHideFlags: 0

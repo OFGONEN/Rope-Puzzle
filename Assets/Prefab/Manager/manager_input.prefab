@@ -146,10 +146,10 @@ MonoBehaviour:
   onFinger:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11400000, guid: 0c733cb8faad94abc9cd17c76a108985, type: 2}
-        m_TargetAssemblyTypeName: FFStudio.GameEvent, Assembly-CSharp
-        m_MethodName: Raise
-        m_Mode: 1
+      - m_Target: {fileID: 11400000, guid: ee6c89b409ec1c442833c29bd9b96220, type: 2}
+        m_TargetAssemblyTypeName: FFStudio.SharedInput_JoyStick, Assembly-CSharp
+        m_MethodName: OnFingerDown
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -158,10 +158,10 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 11400000, guid: ee6c89b409ec1c442833c29bd9b96220, type: 2}
-        m_TargetAssemblyTypeName: FFStudio.SharedInput_JoyStick, Assembly-CSharp
-        m_MethodName: OnFingerDown
-        m_Mode: 0
+      - m_Target: {fileID: 11400000, guid: 0c733cb8faad94abc9cd17c76a108985, type: 2}
+        m_TargetAssemblyTypeName: FFStudio.GameEvent, Assembly-CSharp
+        m_MethodName: Raise
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -264,10 +264,10 @@ MonoBehaviour:
   onFinger:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11400000, guid: 2bdb1b73c0d1543ec8875b9a893c6a6c, type: 2}
-        m_TargetAssemblyTypeName: FFStudio.GameEvent, Assembly-CSharp
-        m_MethodName: Raise
-        m_Mode: 1
+      - m_Target: {fileID: 11400000, guid: ee6c89b409ec1c442833c29bd9b96220, type: 2}
+        m_TargetAssemblyTypeName: FFStudio.SharedInput_JoyStick, Assembly-CSharp
+        m_MethodName: OnFingerUp
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -276,10 +276,10 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 11400000, guid: ee6c89b409ec1c442833c29bd9b96220, type: 2}
-        m_TargetAssemblyTypeName: FFStudio.SharedInput_JoyStick, Assembly-CSharp
-        m_MethodName: OnFingerUp
-        m_Mode: 0
+      - m_Target: {fileID: 11400000, guid: 2bdb1b73c0d1543ec8875b9a893c6a6c, type: 2}
+        m_TargetAssemblyTypeName: FFStudio.GameEvent, Assembly-CSharp
+        m_MethodName: Raise
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

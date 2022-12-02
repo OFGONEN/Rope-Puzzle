@@ -40,10 +40,7 @@ public class UI_Input_Joystick : UIEntity
 		image_base.gameObject.SetActive( true );
 		onUpdate = SetJoystickPosition;
 
-		var position   = input_joyStick.FingerPosition;
-		    position.y = uiTransform.position.y;
-
-		uiTransform.position = position;
+		uiTransform.position = input_joyStick.FingerPosition;
 	}
 
 	public void OnJoystickUIDisable()
