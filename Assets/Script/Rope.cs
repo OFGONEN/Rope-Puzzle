@@ -12,7 +12,6 @@ public class Rope : MonoBehaviour
 #region Fields
   [ Title( "Shared Variables" ) ]
     [ SerializeField ] RopeLenght rope_length;
-    [ SerializeField ] RopeMaterial rope_material;
 
   [ Title( "Components" ) ]
     [ SerializeField ] Renderer rope_renderer;
@@ -26,8 +25,12 @@ public class Rope : MonoBehaviour
 #region Unity API
     void Awake()
     {
+		rope_renderer.sharedMaterial = CurrentLevelData.Instance.levelData.rope_material.Material;
+	}
+
+	void Start()
+	{
 		rope_length.SetValue_NotifyAlways( rope.CalculateLength() );
-		rope_renderer.sharedMaterial = rope_material.Material;
 	}
 #endregion
 
