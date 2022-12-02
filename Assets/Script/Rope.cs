@@ -26,7 +26,7 @@ public class Rope : MonoBehaviour
 #region Unity API
     void Awake()
     {
-		rope_length.SetValue_NotifyAlways( CurrentLevelData.Instance.levelData.rope_length );
+		rope_length.SetValue_NotifyAlways( rope.CalculateLength() );
 		rope_renderer.sharedMaterial = rope_material.Material;
 	}
 #endregion

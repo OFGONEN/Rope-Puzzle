@@ -17,7 +17,6 @@ namespace FFStudio
 
 	[ Title( "Rope" ) ]
         [ LabelText( "Rope Start Material" ) ] public RopeMaterial rope_material;
-        [ LabelText( "Rope Start Length" ) ] public float rope_length;
 
 #if UNITY_EDITOR
 		static IEnumerable SceneList()
