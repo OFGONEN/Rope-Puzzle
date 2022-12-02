@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7064185801883172465}
   - component: {fileID: 7741006857004771828}
-  m_Layer: 0
+  m_Layer: 31
   m_Name: rope_empty
   m_TagString: Untagged
   m_Icon: {fileID: 0}
