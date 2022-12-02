@@ -398,7 +398,7 @@ MonoBehaviour:
     restLength: 0.14066195
     constraintForce: 0
     tearResistance: 1
-  m_RopeBlueprint: {fileID: 11400000, guid: c851aa6b3a6c346f68945cd60698a207, type: 2}
+  m_RopeBlueprint: {fileID: 0}
   tearingEnabled: 0
   tearResistanceMultiplier: 1000
   tearRate: 1
