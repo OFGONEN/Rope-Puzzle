@@ -38,7 +38,7 @@ MonoBehaviour:
   camera_follow_speed: 2.8
   camera_follow_offset: {x: 0, y: 3.5, z: -3.2}
   camera_follow_rotation: {x: 30, y: 0, z: 0}
-  maxLevelCount: 6
+  maxLevelCount: 7
   game_level_end_distance_offset: 1.2
   useRemoteConfig_GameSettings: 0
   useRemoteConfig_Components: 0
