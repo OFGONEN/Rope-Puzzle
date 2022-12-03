@@ -19,6 +19,7 @@ public class Rope : MonoBehaviour
     [ SerializeField ] Renderer rope_renderer;
     [ SerializeField ] ObiRopeCursor rope_cursor;
     [ SerializeField ] ObiRope rope;
+    [ SerializeField ] ObiParticleAttachment rope_attachment;
 
 	Transform rope_anchor;
 	float rope_anchor_distance;
@@ -73,13 +74,11 @@ public class Rope : MonoBehaviour
 
 	public void OnRopeAnchorAttachStart()
 	{
-		FFLogger.Log( "Attach Started", this );
 		onUpdate = ExtensionMethods.EmptyMethod;
 	}
 
 	public void OnRopeAnchorDetachDone()
 	{
-		FFLogger.Log( "Detach Done", this );
 		onUpdate = CheckRopeAnchor;
 	}
 #endregion
@@ -90,7 +89,10 @@ public class Rope : MonoBehaviour
 		if( Vector3.Distance( rope.GetParticlePosition( 0 ), rope_anchor.position ) > rope_anchor_distance )
 		{
 			onUpdate = ExtensionMethods.EmptyMethod;
+			rope_attachment.breakThreshold = 0;
 			event_level_failed.Raise();
+
+			FFLogger.Log( "Rope Detached", this );
 		}
 	}
 #endregion
@@ -101,6 +103,12 @@ public class Rope : MonoBehaviour
 	void LogRopeLength()
 	{
 		FFLogger.Log( "Rope Length: " + rope.CalculateLength() );
+	}
+
+	[ Button() ]
+	void DeatchRope()
+	{
+		rope_attachment.breakThreshold = 0;
 	}
 #endif
 #endregion
