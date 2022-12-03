@@ -110,6 +110,21 @@ public class Rope : MonoBehaviour
 	{
 		rope_attachment.breakThreshold = 0;
 	}
+
+	[ Button() ]
+	void CacheParticleAttachment()
+	{
+		UnityEditor.EditorUtility.SetDirty( gameObject );
+
+		var attachments = GetComponentsInChildren< ObiParticleAttachment >();
+
+		for( var i = 0; i < attachments.Length; i++ )
+		{
+			var attachment = attachments[ i ];
+			if( attachment.attachmentType == ObiParticleAttachment.AttachmentType.Dynamic )
+				rope_attachment = attachment;
+		}
+	}
 #endif
 #endregion
 }
