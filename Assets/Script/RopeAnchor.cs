@@ -80,10 +80,20 @@ public class RopeAnchor : MonoBehaviour
 		onUpdate = UpdateLevelProgress;
 	}
 
-	public void OnLevelFinished()
+	public void OnLevelCompleted()
 	{
+		EmptyDelegates();
 		onUpdate = ExtensionMethods.EmptyMethod;
 		notif_level_progress.SetValue_NotifyAlways( 1 );
+	}
+
+	public void OnLevelFailed()
+	{
+		EmptyDelegates();
+		onUpdate = ExtensionMethods.EmptyMethod;
+
+		_rigidbody.isKinematic = true;
+		DecreaseHeight();
 	}
 
     public void OnFingerDown()
