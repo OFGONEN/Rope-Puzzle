@@ -9,7 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8f00e84b9378a6418f01836d9495f1a, type: 3}
-  m_Name: notif_string_build
+  m_Script: {fileID: 11500000, guid: 4ea3c0b9fd00fd441b6cebc5941ee13b, type: 3}
+  m_Name: level_data_3
   m_EditorClassIdentifier: 
-  sharedValue: IOS_02/12/22_Build-1
+  scene_index: 3
+  scene_overrideAsActiveScene: 0
+  rope_material: {fileID: 11400000, guid: 6670f353745a74e9b81710432bc09ac0, type: 2}

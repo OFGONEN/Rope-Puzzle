@@ -77,15 +77,23 @@ public class RopeAnchor : MonoBehaviour
 		level_end_position = ( notif_level_end.sharedValue as Transform ).position.SetY( 0 );
 		level_end_distance = Vector3.Distance( level_end_position.SetY( 0 ), transform.position.SetY( 0 ) ) - GameSettings.Instance.game_level_end_distance_offset;
 
-		FFLogger.Log( "Level End Distance: " + level_end_distance );
-
 		onUpdate = UpdateLevelProgress;
 	}
 
-	public void OnLevelFinished()
+	public void OnLevelCompleted()
 	{
+		EmptyDelegates();
 		onUpdate = ExtensionMethods.EmptyMethod;
 		notif_level_progress.SetValue_NotifyAlways( 1 );
+	}
+
+	public void OnLevelFailed()
+	{
+		EmptyDelegates();
+		onUpdate = ExtensionMethods.EmptyMethod;
+
+		_rigidbody.isKinematic = true;
+		DecreaseHeight();
 	}
 
     public void OnFingerDown()

@@ -11,6 +11,7 @@ namespace FFStudio
 #region Fields (Settings)
     // Info: You can use Title() attribute ONCE for every game-specific group of settings.
     [ Title( "Rope Anchor" ) ]
+		[ LabelText( "Movement Detach Buffer" ) ] public float rope_detach_buffer;
 		[ LabelText( "Movement Speed" ) ] public float rope_movement_speed;
 		[ LabelText( "Movement Rotate Speed" ) ] public float rope_movement_rotate_speed;
 		[ LabelText( "Movement Height" ) ] public float rope_movement_height;

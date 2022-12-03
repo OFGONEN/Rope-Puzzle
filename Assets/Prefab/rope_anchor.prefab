@@ -91,7 +91,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 80
+  m_Constraints: 84
   m_CollisionDetection: 2
 --- !u!135 &7457917179711467688
 SphereCollider:
@@ -120,7 +120,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thickness: 0
   material: {fileID: 0}
-  filter: 65538
+  filter: 2
   m_SourceCollider: {fileID: 7457917179711467688}
   m_DistanceField: {fileID: 0}
 --- !u!114 &5440135182752255652
@@ -283,13 +283,30 @@ MonoBehaviour:
   - eventListener:
       gameEvents:
       - {fileID: 11400000, guid: 28d976b368abc004a924d98b1751a17d, type: 2}
+    unityEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 8761662339955152066}
+          m_TargetAssemblyTypeName: RopeAnchor, Assembly-CSharp
+          m_MethodName: OnLevelCompleted
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventListener:
+      gameEvents:
       - {fileID: 11400000, guid: ec850936269bc2e47b26cfebd8bdad97, type: 2}
     unityEvent:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 8761662339955152066}
           m_TargetAssemblyTypeName: RopeAnchor, Assembly-CSharp
-          m_MethodName: OnLevelFinished
+          m_MethodName: OnLevelFailed
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
