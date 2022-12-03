@@ -70,6 +70,18 @@ public class Rope : MonoBehaviour
 	{
 		onUpdate = ExtensionMethods.EmptyMethod;
 	}
+
+	public void OnRopeAnchorAttachStart()
+	{
+		FFLogger.Log( "Attach Started", this );
+		onUpdate = ExtensionMethods.EmptyMethod;
+	}
+
+	public void OnRopeAnchorDetachDone()
+	{
+		FFLogger.Log( "Detach Done", this );
+		onUpdate = CheckRopeAnchor;
+	}
 #endregion
 
 #region Implementation

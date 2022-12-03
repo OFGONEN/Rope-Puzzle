@@ -144,6 +144,7 @@ GameObject:
   m_Component:
   - component: {fileID: 887747661221702457}
   - component: {fileID: 7322574137635084851}
+  - component: {fileID: 5348910504707272220}
   m_Layer: 31
   m_Name: logic_respond
   m_TagString: Untagged
@@ -228,3 +229,52 @@ MonoBehaviour:
                 m_BoolArgument: 0
               m_CallState: 2
         argument: {fileID: 11400000, guid: 0256f5003aab0af4a9e035af8d2514b7, type: 2}
+--- !u!114 &5348910504707272220
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6947647099191582343}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 245dc21cc9428744fa28ad2d6ce7d327, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventPairs:
+  - eventListener:
+      gameEvents:
+      - {fileID: 11400000, guid: b9a13a95a2db147449722147857b03f6, type: 2}
+    unityEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 7741006857004771828}
+          m_TargetAssemblyTypeName: Rope, Assembly-CSharp
+          m_MethodName: OnRopeAnchorAttachStart
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventListener:
+      gameEvents:
+      - {fileID: 11400000, guid: 04e9f53fef4f84f6d9a9a9ded786eaf2, type: 2}
+    unityEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 7741006857004771828}
+          m_TargetAssemblyTypeName: Rope, Assembly-CSharp
+          m_MethodName: OnRopeAnchorDetachDone
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
