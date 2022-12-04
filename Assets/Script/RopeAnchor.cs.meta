@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 56ed958f84f234ddc998a7025fce426b
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - shared_input_joystick: {fileID: 11400000, guid: ee6c89b409ec1c442833c29bd9b96220, type: 2}
+  - event_input_joystick_enable: {fileID: 11400000, guid: 38b2a715b154f415eae289fd435088f9, type: 2}
+  - event_input_joystick_disable: {fileID: 11400000, guid: a55e429e10d3d46fcb9b3a531839dff1, type: 2}
+  - _rigidbody: {instanceID: 0}
+  - _collider: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

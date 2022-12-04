@@ -10,14 +10,48 @@ namespace FFStudio
     {
 #region Fields (Settings)
     // Info: You can use Title() attribute ONCE for every game-specific group of settings.
+    [ Title( "Rope Anchor" ) ]
+		[ LabelText( "Movement Detach Buffer" ) ] public float rope_detach_buffer;
+		[ LabelText( "Movement Speed" ) ] public float rope_movement_speed;
+		[ LabelText( "Movement Rotate Speed" ) ] public float rope_movement_rotate_speed;
+		[ LabelText( "Movement Height" ) ] public float rope_movement_height;
+		[ LabelText( "Movement Height Duration" ) ] public float rope_movement_height_duration;
+		[ LabelText( "Movement Height Ease" ) ] public Ease rope_movement_height_ease;
+
+    [ Title( "Rope Attach" ) ]
+		[ LabelText( "Rope Attach Jump Power" ) ] public float rope_attach_jump_power;
+		[ LabelText( "Rope Attach Jump Duration" ) ] public float rope_attach_jump_duration;
+		[ LabelText( "Rope Attach Jump Ease" ) ] public Ease rope_attach_jump_ease;
+		[ LabelText( "Rope Attach Rotate Duration" ) ] public float rope_attach_rotate_duration;
+		[ LabelText( "Rope Attach Rotate Ease" ) ] public Ease rope_attach_rotate_ease;
+		[ LabelText( "Rope Attach Delay" ) ] public float rope_attach_delay;
+		[ LabelText( "Rope Attach Fall Duration" ) ] public float rope_attach_fall_duration;
+		[ LabelText( "Rope Attach Fall Ease" ) ] public Ease rope_attach_fall_ease;
+
+    [ Title( "Rope Detach" ) ]
+		[ LabelText( "Rope Detach Rise Duration" ) ] public float rope_detach_rise_duration;
+		[ LabelText( "Rope Detach Rise Ease" ) ] public Ease rope_detach_rise_ease;
+		[ LabelText( "Rope Detach Delay" ) ] public float rope_detach_delay;
+		[ LabelText( "Rope Detach Jump Power" ) ] public float rope_detach_jump_power;
+		[ LabelText( "Rope Detach Jump Duration" ) ] public float rope_detach_jump_duration;
+		[ LabelText( "Rope Detach Jump Ease" ) ] public Ease rope_detach_jump_ease;
+		[ LabelText( "Rope Detach Rotate Duration" ) ] public float rope_detach_rotate_duration;
+		[ LabelText( "Rope Detach Rotate Ease" ) ] public Ease rope_detach_rotate_ease;
+
+    [ Title( "Button" ) ]
+		[ LabelText( "Button Color Change Duration" ) ] public float button_color_change_duration;
+		[ LabelText( "Button Color Change Ease" ) ] public Ease button_color_change_ease;
     
     [ Title( "Camera" ) ]
-        [ LabelText( "Follow Speed (Z)" ), SuffixLabel( "units/seconds" ), Min( 0 ) ] public float camera_follow_speed_depth = 2.8f;
+        [ LabelText( "Follow Speed" ), SuffixLabel( "units/seconds" ), Min( 0 ) ] public float camera_follow_speed = 2.8f;
+        [ LabelText( "Follow Offset" ) ] public Vector3 camera_follow_offset;
+        [ LabelText( "Follow Rotation" ) ] public Vector3 camera_follow_rotation;
     
     [ Title( "Project Setup", "These settings should not be edited by Level Designer(s).", TitleAlignments.Centered ) ]
         public int maxLevelCount;
-        
-        // Info: 3 groups below (coming from template project) are foldout by design: They should remain hidden.
+        public float game_level_end_distance_offset = 1.2f;
+
+		// Info: 3 groups below (coming from template project) are foldout by design: They should remain hidden.
 		[ FoldoutGroup( "Remote Config" ) ] public bool useRemoteConfig_GameSettings;
         [ FoldoutGroup( "Remote Config" ) ] public bool useRemoteConfig_Components;
 

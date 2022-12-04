@@ -12,8 +12,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a385bd3b4416492409284c9a366cb52a, type: 3}
   m_Name: game_settings
   m_EditorClassIdentifier: 
-  camera_follow_speed_depth: 2.8
-  maxLevelCount: 1
+  rope_detach_buffer: 0.4
+  rope_movement_speed: 2.5
+  rope_movement_rotate_speed: 45
+  rope_movement_height: 0.25
+  rope_movement_height_duration: 0.25
+  rope_movement_height_ease: 6
+  rope_attach_jump_power: 0.5
+  rope_attach_jump_duration: 0.45
+  rope_attach_jump_ease: 6
+  rope_attach_rotate_duration: 0.25
+  rope_attach_rotate_ease: 6
+  rope_attach_delay: 0.1
+  rope_attach_fall_duration: 0.35
+  rope_attach_fall_ease: 6
+  rope_detach_rise_duration: 0.15
+  rope_detach_rise_ease: 6
+  rope_detach_delay: 0.1
+  rope_detach_jump_power: 0.4
+  rope_detach_jump_duration: 0.3
+  rope_detach_jump_ease: 6
+  rope_detach_rotate_duration: 0.2
+  rope_detach_rotate_ease: 6
+  button_color_change_duration: 0.35
+  button_color_change_ease: 12
+  camera_follow_speed: 2.8
+  camera_follow_offset: {x: 0, y: 3.5, z: -3.2}
+  camera_follow_rotation: {x: 30, y: 0, z: 0}
+  maxLevelCount: 12
+  game_level_end_distance_offset: 1.2
   useRemoteConfig_GameSettings: 0
   useRemoteConfig_Components: 0
   ui_Entity_Move_TweenDuration: 0.5
