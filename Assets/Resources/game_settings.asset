@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: game_settings
   m_EditorClassIdentifier: 
   rope_detach_buffer: 0.4
-  rope_movement_speed: 3
+  rope_movement_speed: 2.5
   rope_movement_rotate_speed: 45
   rope_movement_height: 0.25
   rope_movement_height_duration: 0.25
@@ -39,7 +39,7 @@ MonoBehaviour:
   camera_follow_speed: 2.8
   camera_follow_offset: {x: 0, y: 3.5, z: -3.2}
   camera_follow_rotation: {x: 30, y: 0, z: 0}
-  maxLevelCount: 7
+  maxLevelCount: 12
   game_level_end_distance_offset: 1.2
   useRemoteConfig_GameSettings: 0
   useRemoteConfig_Components: 0
