@@ -15,8 +15,11 @@ namespace FFStudio
 		[ ValueDropdown( "SceneList" ), LabelText( "Scene Index" ) ] public int scene_index;
         [ LabelText( "Override As Active Scene" ) ] public bool scene_overrideAsActiveScene;
 
+	[ Title( "Rope" ) ]
+        [ LabelText( "Rope Start Material" ) ] public RopeMaterial rope_material;
+
 #if UNITY_EDITOR
-		private static IEnumerable SceneList()
+		static IEnumerable SceneList()
         {
 			var list = new ValueDropdownList< int >();
 

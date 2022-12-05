@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: d854c172c45ae48c7a5f3c5c8598cf12
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - rope_length: {fileID: 11400000, guid: 25e9eb74b4f7d44aa95c797412b6f10f, type: 2}
+  - rope_material: {fileID: 11400000, guid: 6670f353745a74e9b81710432bc09ac0, type: 2}
+  - rope_renderer: {instanceID: 0}
+  - rope_cursor: {instanceID: 0}
+  - rope: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

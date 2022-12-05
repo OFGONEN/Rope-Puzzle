@@ -14,10 +14,26 @@ namespace FFStudio
 		public Vector3 position;
 		public Vector3 rotation; // Euler angles.
 		public Vector3 scale; // Local scale.
+
+		public TransformData( Transform transform, bool isLocal )
+		{
+			if( isLocal )
+			{
+				position = transform.localPosition;
+				rotation = transform.localEulerAngles;
+				scale    = transform.localScale;
+			}
+			else
+			{
+				position = transform.position;
+				rotation = transform.eulerAngles;
+				scale    = transform.localScale;
+			}
+		}
 	}
 
 	[ Serializable ]
-	public struct EventPair
+	public struct EventResponseData
 	{
 		public MultipleEventListenerDelegateResponse eventListener;
 		public UnityEvent unityEvent;
@@ -29,6 +45,130 @@ namespace FFStudio
 	}
 
 	[ Serializable ]
+	public abstract class EventResponseDataBase
+	{
+		public MultipleEventListenerDelegateResponse eventListener;
+
+		public void Pair()
+		{
+			eventListener.response = OnResponse;
+		}
+
+		protected abstract void OnResponse();
+	}
+
+	[ Serializable ]
+	public abstract class EventResponseGenericArgumentData< T > : EventResponseDataBase
+	{
+		public T argument;
+		public UnityEvent< T > unityEvent;
+	}
+
+	[ Serializable ]
+	public abstract class EventResponseGenericData< T > : EventResponseDataBase
+	{
+		public UnityEvent< T > unityEvent;
+	}
+
+	[ Serializable ]
+	public abstract class EventGenericResponseData< T > : EventResponseGenericArgumentData< T >
+	{
+		protected override void OnResponse()
+		{
+			unityEvent.Invoke( argument );
+		}
+	}
+
+	[ Serializable ]
+	public class EventBasicResponseData : EventResponseDataBase
+	{
+		public UnityEvent unityEvent;
+
+		protected override void OnResponse()
+		{
+			unityEvent.Invoke();
+		}
+	}
+
+	[ Serializable ]
+	public class EventBoolResponseData : EventGenericResponseData< bool > { }
+
+	[ Serializable ]
+	public class EventIntResponseData : EventGenericResponseData< int > { }
+
+	[ Serializable ]
+	public class EventFloatResponseData : EventGenericResponseData< float > { }
+
+	[ Serializable ]
+	public class EventStringResponseData : EventGenericResponseData< string > { }
+
+	[ Serializable ]
+	public class EventBoolGameEventResponseData : EventResponseGenericData< bool > 
+	{
+		public BoolGameEvent argument;
+
+		protected override void OnResponse()
+		{
+			unityEvent.Invoke( argument.eventValue );
+		}	
+	}
+
+	[ Serializable ]
+	public class EventIntGameEventResponseData : EventResponseGenericData< int > 
+	{
+		public IntGameEvent argument;
+
+		protected override void OnResponse()
+		{
+			unityEvent.Invoke( argument.eventValue );
+		}	
+	}
+
+	[ Serializable ]
+	public class EventFloatGameEventResponseData : EventResponseGenericData< float > 
+	{
+		public FloatGameEvent argument;
+
+		protected override void OnResponse()
+		{
+			unityEvent.Invoke( argument.eventValue );
+		}	
+	}
+
+	[ Serializable ]
+	public class EventStringGameEventResponseData : EventResponseGenericData< string >
+	{
+		public StringGameEvent argument;
+
+		protected override void OnResponse()
+		{
+			unityEvent.Invoke( argument.eventValue );
+		}
+	}
+
+	[ Serializable ]
+	public class EventReferenceGameEventResponseData : EventResponseGenericData< object >
+	{
+		public ReferenceGameEvent argument;
+
+		protected override void OnResponse()
+		{
+			unityEvent.Invoke( argument.eventValue );
+		}
+	}
+
+	[ Serializable ]
+	public class EventRopeMaterialGameEventResponseData : EventResponseGenericData< RopeMaterial >
+	{
+		public RopeMaterialGameEvent argument;
+
+		protected override void OnResponse()
+		{
+			unityEvent.Invoke( argument.eventValue );
+		}
+	}
+
+	[ Serializable ]
 	public struct ParticleData
 	{
 		public ParticleSpawnEvent particle_event;
@@ -36,6 +176,11 @@ namespace FFStudio
 		public bool parent;
 		public Vector3 offset;
 		public float size;
+
+		public void Raise( Vector3 position, Transform parent )
+		{
+			particle_event.Raise( alias, position + offset, parent, size );
+		}
 	}
 
 	[ Serializable ]
@@ -84,5 +229,74 @@ namespace FFStudio
 
 		public UnityEvent event_complete;
 		public bool event_complete_alwaysInvoke;
+	}
+	
+	[ Serializable ]
+	public struct PlayerPrefs_Int
+	{
+		[ ReadOnly ]
+		public string key;
+		[ OnValueChanged( "Save" ) ]
+		public int value;
+		
+		public void Refresh() => value = PlayerPrefs.GetInt( key, 0 );
+		public void Save()
+		{
+			PlayerPrefs.SetInt( key, value );
+			FFLogger.Log( $"PlayerPrefs: Saved value \"{value}\" for key \"{key}\"." );
+		}
+	}
+	
+	[ Serializable ]
+	public struct PlayerPrefs_Float
+	{
+		[ ReadOnly ]
+		public string key;
+		[ OnValueChanged( "Save" ) ]
+		public float value;
+		
+		public void Refresh() => value = PlayerPrefs.GetFloat( key, 0.0f );
+		public void Save()
+		{
+			PlayerPrefs.SetFloat( key, value );
+			FFLogger.Log( $"PlayerPrefs: Saved value \"{value}\" for key \"{key}\"." );
+		}
+	}
+	
+	[ Serializable ]
+	public struct PlayerPrefs_String
+	{
+		[ ReadOnly ]
+		public string key;
+		[ OnValueChanged( "Save" ) ]
+		public string value;
+		
+		public void Refresh() => value = PlayerPrefs.GetString( key, "" );
+		public void Save()
+		{
+			PlayerPrefs.SetString( key, value );
+			FFLogger.Log( $"PlayerPrefs: Saved value \"{value}\" for key \"{key}\"." );
+		}
+	}
+	
+	[ Serializable ]
+	public struct ColorPerThreshold
+	{
+		public Color color;
+		[ MappedFloat ] public float threshold;
+	}
+
+	[ Serializable ]
+	public struct TriggerRespondData
+	{
+		[ Layer() ] public int collision_layer;
+		public UnityEvent< Collider > trigger_event;
+	}
+
+	[ Serializable ]
+	public struct CollisionRespondData
+	{
+		[ Layer() ] public int collision_layer;
+		public UnityEvent< Collision > collision_event;
 	}
 }

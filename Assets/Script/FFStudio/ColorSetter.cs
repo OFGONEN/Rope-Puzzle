@@ -1,54 +1,76 @@
 /* Created by and for usage of FF Studios (2021). */
 
 using UnityEngine;
-using FFStudio;
+using DG.Tweening;
 using Sirenix.OdinInspector;
 
 namespace FFStudio
 {
 	public class ColorSetter : MonoBehaviour
 	{
-#region Fields (Inspector Interface)
-		[ TitleGroup( "Setup" ), SerializeField ] private Color color;
-#endregion
+		#region Fields
+		[ TitleGroup( "Setup" ), SerializeField ] Renderer _renderer;
+		[ TitleGroup( "Setup" ), SerializeField ] Color[] color_array;
+		[ ShowInInspector, ReadOnly ] Color color_current;
+		[ ShowInInspector, ReadOnly ] int color_index;
 
-#region Fields (Private)
-		private static int SHADER_ID_COLOR = Shader.PropertyToID( "_BaseColor" );
+		RecycledTween recycledTween = new RecycledTween();
 
-		private Renderer _renderer;
-		private MaterialPropertyBlock propertyBlock;
+		static int SHADER_ID_COLOR = Shader.PropertyToID( "_BaseColor" );
+		MaterialPropertyBlock propertyBlock;
 #endregion
 
 #region Properties
 #endregion
 
 #region Unity API
-		private void Awake()
+		void Awake()
 		{
-			_renderer = GetComponent<Renderer>();
-
 			propertyBlock = new MaterialPropertyBlock();
 		}
 #endregion
 
 #region API
-		public void SetColor( Color color )
+		public void SetColor( int index )
 		{
-			this.color = color;
-
+			color_index   = index;
+			color_current = color_array[ index ];
 			SetColor();
 		}
 
-		[Button]
-		public void SetColor() // Info: This may be more "Unity-Event-friendly".
+		public void SetColorTween( int index )
 		{
-			_renderer.GetPropertyBlock( propertyBlock );
-			propertyBlock.SetColor( SHADER_ID_COLOR, color );
-			_renderer.SetPropertyBlock( propertyBlock );
+			color_index = index;
+
+			recycledTween.Recycle( DOTween.To( GetColor, SetColor, color_array[ index ], GameSettings.Instance.button_color_change_duration )
+			.SetEase( GameSettings.Instance.button_color_change_ease ) );
+		}
+		
+		public void SetAlpha( float alpha )
+		{
+			color_current = color_current.SetAlpha( alpha );
+			SetColor();
 		}
 #endregion
 
 #region Implementation
+		void SetColor( Color color )
+		{
+			color_current = color;
+			SetColor();
+		}
+
+		void SetColor()
+		{
+			_renderer.GetPropertyBlock( propertyBlock );
+			propertyBlock.SetColor( SHADER_ID_COLOR, color_current );
+			_renderer.SetPropertyBlock( propertyBlock );
+		}
+
+		Color GetColor()
+		{
+			return color_current;
+		}
 #endregion
 
 #region Editor Only
