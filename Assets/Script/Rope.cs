@@ -106,7 +106,7 @@ public class Rope : MonoBehaviour
 	}
 
 	[ Button() ]
-	void DeatchRope()
+	public void DeatchRope()
 	{
 		rope_attachment.breakThreshold = 0;
 	}
